@@ -2,6 +2,7 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+    background-color: rgb(2 21 38);
 }
 
 .easter-egg {
@@ -109,77 +110,6 @@ section {
     z-index: 2;
 }
 
-.blob {
-    position: relative;
-    top: -10%;
-    left: 0%;
-    background-color: aqua;
-    width: 10em;
-    height: 10em;
-    border-radius: 50%;
-    filter: blur(120px);
-}
-
-#bottom-nav.hide {
-    transform: translateY(35rem);
-
-}
-
-.liquidGlass-wrapper {
-    position: fixed;
-    display: flex;
-    font-weight: 600;
-    overflow: hidden;
-    color: black;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease-in-out;
-    padding: 20px;
-    border-radius: 50px;
-    top: 85%;
-    z-index: 3;
-}
-
-.liquidGlass-effect {
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    backdrop-filter: blur(3px);
-    filter: url(#glass-distortion);
-    overflow: hidden;
-    isolation: isolate;
-}
-
-.liquidGlass-tint {
-    z-index: 1;
-    position: absolute;
-    inset: 0;
-    background: rgb(255 255 255 / 5%);
-}
-
-.liquidGlass-shine {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    overflow: hidden;
-    box-shadow: inset 5px 5px 12px 0 rgb(255 255 255 / 23%), inset -7px -5px 31px -14px rgba(255, 255, 255, 0.5);
-    border-radius: 50px;
-    background-color: #0000006e;
-}
-
-.liquidGlass-text {
-    z-index: 3;
-    font-size: 2rem;
-    color: white;
-    width: 7em;
-    height: 1em;
-    display: flex;
-    margin: 5px;
-    justify-content: space-around;
-}
-
-.liquidGlass-text img {
-    cursor: pointer;
-}
 
 /* page 2 starts here */
 
