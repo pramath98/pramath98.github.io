@@ -1,0 +1,206 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.easter-egg {
+    font-family: Lexend;
+    font-size: 1em;
+    position: fixed;
+    top: 2%;
+    left: 92%;
+    color: rgb(229 255 255 / 10%);
+    z-index: 2;
+}
+
+.email-cta {
+    z-index: 2;
+    font-family: Lexend;
+    font-size: 1.2em;
+    position: fixed;
+    top: 3%;
+    left: 3%;
+    color: rgb(200, 255, 255);
+    font-weight: 200;
+    display: flex;
+    width: 10em;
+    justify-content: space-evenly;
+    background: #011f3b;
+    padding: 1em;
+    border-radius: 50em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    backdrop-filter:blur(20px);
+}
+
+.email-cta:hover {
+    transform: scale(1.05);
+    background-color: #002f5a62;
+    cursor: none;
+}
+
+.socials-container {
+    font-family: Lexend;
+    font-size: 1em;
+    position: fixed;
+    top: 3%;
+    right: 2%;
+    color: rgb(200, 255, 255);
+    z-index: 2;
+    display: flex;
+    width: 20em;
+    padding: 1em;
+    justify-content: space-around;
+}
+
+.socials-container a {
+    color: rgb(200, 255, 255);
+    text-decoration: underline;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#home {
+    background-color: rgb(2 21 38);
+}
+
+#about-me {
+    background-color: rgb(2 21 38);
+    /* background-color: rgb(0 120 120); */
+}
+
+#contact-me {
+    background-color: rgb(2 21 38);
+    /* background-color: rgb(200, 255, 255); */
+}
+
+.title h1 {
+    font-family: Lexend;
+    color: rgb(200, 255, 255);
+    font-size: 4em;
+    font-weight: 600;
+    line-break: auto;
+    width: 8em;
+    text-align: center;
+}
+
+.title h2 {
+    font-family: Lexend;
+    color: rgb(200, 255, 255);
+    font-size: 1.3em;
+    font-weight: 200;
+}
+
+.title {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.blob {
+    position: relative;
+    top: -10%;
+    left: 0%;
+    background-color: aqua;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    filter: blur(120px);
+}
+
+#bottom-nav.hide {
+    transform: translateY(35rem);
+
+}
+
+.liquidGlass-wrapper {
+    position: fixed;
+    display: flex;
+    font-weight: 600;
+    overflow: hidden;
+    color: black;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+    padding: 20px;
+    border-radius: 50px;
+    top: 85%;
+    z-index: 3;
+}
+
+.liquidGlass-effect {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    filter: url(#glass-distortion);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.liquidGlass-tint {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: rgb(255 255 255 / 5%);
+}
+
+.liquidGlass-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: inset 5px 5px 12px 0 rgb(255 255 255 / 23%), inset -7px -5px 31px -14px rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    background-color: #0000006e;
+}
+
+.liquidGlass-text {
+    z-index: 3;
+    font-size: 2rem;
+    color: white;
+    width: 7em;
+    height: 1em;
+    display: flex;
+    margin: 5px;
+    justify-content: space-around;
+}
+
+.liquidGlass-text img {
+    cursor: pointer;
+}
+
+/* page 2 starts here */
+
+.about-me-heading {
+    font-family: Lexend;
+    color: rgb(200 255 255);
+    font-size: 6em;
+    font-weight: 700;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+}
+
+/* page 3 starts here */
+
+.contact-me-heading {
+    font-family: Lexend;
+    color: rgb(200 255 255);
+    font-size: 6em;
+    font-weight: 700;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+}

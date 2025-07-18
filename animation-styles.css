@@ -1,0 +1,133 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.grain-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  opacity: 0.1; /* subtle grain */
+  /* mix-blend-mode: overlay;  */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.title h1 {
+    font-family: Lexend;
+    color: white;
+    font-size: 4em;
+    font-weight: 600;
+}
+
+.title h2 {
+    font-family: Lexend;
+    color: white;
+    font-size: 1.3em;
+    font-weight: 200;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.blob:nth-child(1) {
+    --angle-delay: 0s;
+    --moving-delay: 0s;
+    --color: rgb(255, 108, 108);
+}
+
+.blob:nth-child(2) {
+    --angle-delay: -9s;
+    --moving-delay: -12s;
+    --color: rgb(234, 0, 255);
+}
+
+.blob {
+    opacity: .5;
+    position: absolute;
+    animation: moving 5s var(--moving-delay) infinite ease-in-out alternate;
+}
+
+.blob::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-color: var(--color);
+    filter: blur(40px);
+    animation: angle 6s var(--angle-delay) infinite linear;
+}
+
+@keyframes angle {
+
+    0% {
+        border-radius: 50%;
+        transform: translate(10%, 100%) scale(1) rotate(0deg);
+        height: 400px;
+      }
+
+      25% {
+        border-radius: 70% 30% 60% 40% / 30% 60% 40% 70%;
+        transform: translate(55%, -45%) scale(1.1, 0.9) rotate(10deg);
+        height: 150px;
+      }
+
+      50% {
+        border-radius: 90% 10% 80% 20% / 20% 80% 30% 70%;
+        transform: translate(0%, -55%) scale(1.2, 0.8) rotate(-10deg);
+        height: 75px;
+      }
+
+      75% {
+        border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+        transform: translate(-45%, -50%) scale(0.9, 1.1) rotate(5deg);
+        height: 50px;
+      }
+
+      100% {
+        border-radius: 50%;
+        transform: translate(10%, 100%) scale(1) rotate(0deg);
+        height: 400px;
+      }
+
+}
+
+@keyframes moving {
+    0% {
+        transform: translate(-90%, -50%);
+    }
+
+    50% {
+        transform: translate(-100%, 100%);
+    }
+
+    100% {
+        transform: translate(-90%,-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    .blob::after {
+        width: 160px;
+    }
+}
