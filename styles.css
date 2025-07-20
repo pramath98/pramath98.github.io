@@ -21,8 +21,23 @@ body {
     z-index: 3;
     align-items: center;
     justify-content: space-between;
+}
+
+.scroll-to-top {
+    position: fixed;
+    top: 90%;
+    color: white;
+    z-index: 3;
+    left: 5%;
+    cursor: pointer;
+    font-family: Lexend;
+}
+
+.on-scroll {
+    transition: all .5s ease-in-out;
     background-color: var(--primary-bg).6;
     backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgb(32, 32, 32);
 }
 
 .email-cta {
@@ -55,7 +70,7 @@ body {
     font-size: 1em;
     color: var(--primary-text);
     display: flex;
-    width: 20em;
+    width: 11em;
     padding: 1em;
     justify-content: space-around;
     height: 3em;

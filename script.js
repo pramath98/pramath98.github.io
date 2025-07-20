@@ -1,4 +1,22 @@
 const btn = document.querySelector('.email-cta');
+const sttBtn = document.querySelector('#scroll-to-top-btn');
+
+window.addEventListener("scroll", (event) => {
+  let scroll = this.scrollY;
+  const header = document.querySelector('.header');
+
+  if (scroll > 50) {
+    sttBtn.style.display = 'block';
+    sttBtn.addEventListener('click', () => {
+      window.scrollTo(0, 0);
+    })
+    header.classList.add('on-scroll');
+    sttBtn.classList.add('scroll-to-top');
+  } else {
+    header.classList.remove('on-scroll');
+    sttBtn.style.display = 'none';
+  }
+});
 
 btn.addEventListener('mousemove', (e) => {
   // Get size and position of the button
