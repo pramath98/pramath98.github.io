@@ -1,35 +1,140 @@
-const btn = document.querySelector('.email-cta');
-const sttBtn = document.querySelector('#scroll-to-top-btn');
+// Fetch and populate portfolio data
+async function loadPortfolioData() {
+    try {
+        const response = await fetch('./portfolio-data.json');
+        const data = await response.json();
+        
+        // Populate home section
+        document.getElementById('home-name').textContent = data.personal.name;
+        document.getElementById('home-title').textContent = data.personal.title;
+        
+        // Populate about section
+        document.getElementById('about-description').textContent = data.about.description;
+        
+        // Populate skills section
+        populateSkills(data.skills);
+        
+        // Populate professional experience
+        populateExperience(data.experience.professional, 'professional-timeline');
+        
+        // Populate freelance experience
+        populateExperience(data.experience.freelance, 'freelance-timeline');
+        
+        // Populate header
+        populateHeader(data.personal);
+        
+    } catch (error) {
+        console.error('Error loading portfolio data:', error);
+    }
+}
 
-window.addEventListener("scroll", (event) => {
-  let scroll = this.scrollY;
-  const header = document.querySelector('.header');
+// Populate skills grid
+function populateSkills(skills) {
+    const skillsGrid = document.getElementById('skills-grid');
+    skillsGrid.innerHTML = '';
+    
+    skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'skill-item';
+        skillItem.setAttribute('data-skill', skill.name);
+        
+        skillItem.innerHTML = `
+            <i class="${skill.icon}" style="color: ${skill.color}"></i>
+            <span class="skill-name">${skill.name}</span>
+        `;
+        
+        skillsGrid.appendChild(skillItem);
+    });
+}
 
-  if (scroll > 50) {
-    sttBtn.style.display = 'block';
-    sttBtn.addEventListener('click', () => {
-      window.scrollTo(0, 0);
-    })
-    header.classList.add('on-scroll');
-    sttBtn.classList.add('scroll-to-top');
-  } else {
-    header.classList.remove('on-scroll');
-    sttBtn.style.display = 'none';
-  }
+// Populate experience timeline
+function populateExperience(experiences, timelineId) {
+    const timeline = document.getElementById(timelineId);
+    timeline.innerHTML = '';
+    
+    experiences.forEach(exp => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+        
+        const descriptionList = exp.description.map(desc => `<li>${desc}</li>`).join('');
+        
+        timelineItem.innerHTML = `
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <div class="company-logo">
+                        <i class="${exp.companyIcon}"></i>
+                        <span class="company-name">${exp.company}</span>
+                    </div>
+                    <h3>${exp.title}</h3>
+                    <div class="timeline-company">${exp.company}</div>
+                    <div class="timeline-period">${exp.period}</div>
+                </div>
+                <div class="timeline-description">
+                    <ul>${descriptionList}</ul>
+                </div>
+            </div>
+        `;
+        
+        timeline.appendChild(timelineItem);
+    });
+}
+
+// Populate header
+function populateHeader(personal) {
+    const emailLink = document.getElementById('email-link');
+    const githubLink = document.getElementById('github-link');
+    const linkedinLink = document.getElementById('linkedin-link');
+    
+    emailLink.href = `mailto:${personal.email}`;
+    githubLink.href = personal.socials.github;
+    linkedinLink.href = personal.socials.linkedin;
+}
+
+// Existing scroll functionality
+const header = document.querySelector('.header');
+const btn = document.querySelector('#scroll-to-top-btn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('on-scroll');
+        btn.style.display = 'block';
+    } else {
+        header.classList.remove('on-scroll');
+        btn.style.display = 'none';
+    }
 });
 
-btn.addEventListener('mousemove', (e) => {
-  // Get size and position of the button
-  const rect = btn.getBoundingClientRect();
-  // Calculate mouse position relative to the center
-  const x = e.clientX - (rect.left + rect.width / 2);
-  const y = e.clientY - (rect.top + rect.height / 2);
-  // Move only a small percent (subtle effect)
-  const strength = 0.25; // change for less/more subtle movement
-  btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+btn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
-btn.addEventListener('mouseleave', () => {
-  // Reset to original position
-  btn.style.transform = 'translate(0, 0)';
+// Mouse follow effect function
+const applyMouseFollowEffect = (element) => {
+    element.addEventListener('mousemove', (e) => {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        const strength = 0.1;
+        element.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    });
+
+    element.addEventListener('mouseleave', () => {
+        element.style.transform = 'translate(0, 0)';
+    });
+};
+
+// Apply mouse follow effect to elements
+document.addEventListener('DOMContentLoaded', () => {
+    // Load portfolio data first
+    loadPortfolioData().then(() => {
+        // Then apply mouse follow effects
+        const btn = document.querySelector('.email-cta');
+        if (btn) applyMouseFollowEffect(btn);
+        
+        document.querySelectorAll('.mouse-follow-element').forEach(applyMouseFollowEffect);
+    });
 });
