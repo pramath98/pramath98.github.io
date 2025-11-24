@@ -280,5 +280,13 @@ window.addEventListener('scroll', () => {
 
         blob.style.marginTop = `${yPos}px`;
     });
+
+    // Fade out scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        const opacity = 1 - Math.min(1, scrolled / 300);
+        scrollIndicator.style.opacity = opacity;
+        scrollIndicator.style.transform = `translateY(${scrolled * 0.5}px)`; // Optional: move it down slightly while fading
+    }
 });
 

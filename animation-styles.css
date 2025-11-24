@@ -1,47 +1,11 @@
-* {
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
-}
-
 .grain-bg {
     position: fixed;
     inset: 0;
     z-index: 4;
     opacity: 0.05;
-    /* subtle grain */
-    /* mix-blend-mode: overlay;  */
     pointer-events: none;
     overflow: hidden;
     background-image: url('./grainy.svg');
-}
-
-
-
-.title h1 {
-    font-family: Lexend;
-    color: white;
-    font-size: 4em;
-    font-weight: 600;
-}
-
-.title h2 {
-    font-family: Lexend;
-    color: white;
-    font-size: 1.3em;
-    font-weight: 200;
-}
-
-.title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
 }
 
 /* Enhanced blob animations */
@@ -54,7 +18,6 @@
     z-index: -1;
     animation: morph 10s infinite ease-in-out alternate, rotate 20s infinite linear;
     transition: transform 0.1s linear;
-    /* Smooth parallax */
 }
 
 .blob:nth-child(1) {
@@ -125,65 +88,5 @@
 
     100% {
         transform: rotate(360deg);
-    }
-}
-
-/* Floating animation for subtle movement */
-@keyframes floating {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Add floating effect to some blobs */
-.blob:nth-child(2),
-.blob:nth-child(4) {
-    animation: floating 6s ease-in-out infinite, moving 8s infinite ease-in-out alternate;
-}
-
-/* Contact section blobs - minimal movement */
-#contact-me .blob {
-    animation: subtle-moving 12s infinite ease-in-out alternate;
-}
-
-#contact-me .blob:nth-child(1) {
-    animation-delay: 0s;
-}
-
-#contact-me .blob:nth-child(2) {
-    animation-delay: 3s;
-}
-
-#contact-me .blob:nth-child(3) {
-    animation-delay: 6s;
-}
-
-#contact-me .blob:nth-child(4) {
-    animation-delay: 9s;
-}
-
-#contact-me .blob:nth-child(5) {
-    animation-delay: 1.5s;
-}
-
-@keyframes subtle-moving {
-    0% {
-        transform: translate(-5%, -5%) scale(1);
-    }
-
-    100% {
-        transform: translate(5%, 5%) scale(1.02);
-    }
-}
-
-@media (max-width: 600px) {
-    .blob::after {
-        width: 160px;
     }
 }
