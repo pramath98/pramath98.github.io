@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./animation-styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <div class="global-font-family">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    </div>
 
     <div class="header">
         <a href="mailto:" id="email-link" class="email-cta">
@@ -26,40 +31,39 @@
         </a>
 
         <div class="socials-container">
-            <a href="" id="github-link">GitHub</a> /
+            <a href="" id="github-link">GitHub</a>
             <a href="" id="linkedin-link">LinkedIn</a>
         </div>
     </div>
 
-    <div id="scroll-to-top-btn">Scroll to top</div>
+    <div class="background-effects">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <div id="scroll-to-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <!-- Home Starts here -->
     <section id="home">
+        <!-- Grain overlay -->
+        <div class="grain-bg"></div>
         <div class="home-container">
-            <div class="title">
-                <div class="greeting">
-                    <span class="wave">👋</span>
-                    <span class="greeting-text">Hello, I am</span>
+            <div class="terminal-hero">
+                <div class="terminal-bar">
+                    <span class="term-dot dot-red"></span>
+                    <span class="term-dot dot-yellow"></span>
+                    <span class="term-dot dot-green"></span>
                 </div>
-                
-                <h1 class="main-title">
-                    <span class="name-highlight" id="home-name"></span>
-                </h1>
-                
-                <h2 class="subtitle" id="home-title"></h2>
-                
-                <div class="role-badges">
-                    <span class="role-badge">Full-Stack Developer</span>
-                    <span class="role-badge">Cloud Engineer</span>
-                    <span class="role-badge">Problem Solver</span>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="#about-me" class="cta-primary">Get to know me</a>
-                    <a href="#contact-me" class="cta-secondary">Let's connect</a>
-                </div>
+                <pre class="hero-code">
+<span class="code-key">const</span> <span class="code-var">name</span> = <span class="code-str">'Pramath'</span>;
+<span class="code-key">const</span> <span class="code-var">role</span> = <span class="code-str">'Frontend Developer'</span>;
+</pre>
             </div>
-            
             <div class="scroll-indicator">
                 <div class="scroll-arrow"></div>
                 <span>Scroll to explore</span>
@@ -71,11 +75,6 @@
 
     <!-- About me starts here -->
     <section id="about-me">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
         <div class="section-content-wrapper">
             <div class="section-heading">About me</div>
             <div class="about-me-content glass-container mouse-follow-element">
@@ -83,12 +82,12 @@
                     <div class="about-icon">🚀</div>
                     <h3>About Me</h3>
                 </div>
-                
+
                 <div class="about-text">
                     <p class="about-intro" id="about-description">
                         <!-- About description will be populated dynamically -->
                     </p>
-                    
+
                     <div class="about-highlights">
                         <div class="highlight-item">
                             <i class="fas fa-code"></i>
@@ -107,9 +106,10 @@
                             <span>Cross-functional team collaboration</span>
                         </div>
                     </div>
-                    
+
                     <p class="about-passion">
-                        Passionate about delivering <span class="highlight">end-to-end solutions</span> with a focus on performance, scalability, and best coding practices.
+                        Passionate about delivering <span class="highlight">end-to-end solutions</span> with a focus on
+                        performance, scalability, and best coding practices.
                     </p>
                 </div>
             </div>
@@ -118,11 +118,6 @@
 
     <!-- Technical Skills starts here -->
     <section id="technical-skills">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
         <div class="section-content-wrapper">
             <div class="section-heading">Technical Skills</div>
             <div class="skills-content glass-container mouse-follow-element">
@@ -135,11 +130,6 @@
 
     <!-- Professional Experience starts here -->
     <section id="professional-experience">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
         <div class="section-content-wrapper">
             <div class="section-heading">Professional Experience</div>
             <div class="experience-content glass-container mouse-follow-element">
@@ -152,11 +142,6 @@
 
     <!-- Freelance Experience starts here -->
     <section id="freelance-experience">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
         <div class="section-content-wrapper">
             <div class="section-heading">Freelance Experience</div>
             <div class="experience-content glass-container mouse-follow-element">
@@ -169,11 +154,6 @@
 
     <!-- Contact me starts here -->
     <section id="contact-me">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
         <div class="section-content-wrapper">
             <div class="section-heading">Contact me</div>
             <div class="contact-content glass-container">
